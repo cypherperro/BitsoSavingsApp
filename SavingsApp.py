@@ -17,17 +17,17 @@ def get_risk_level():
 
 def place_order(mxn_available, risk_level):
     if risk_level == "high":
-        btc_to_buy = str(mxn_available)
+        btc_to_buy = str(int(mxn_available))
         order = api.place_order(book='btc_mxn', side='buy', order_type='market', minor=btc_to_buy)
 
     elif risk_level == "medium":
-        btc_to_buy = str(round(mxn_available * 0.50))
-        tusd_tobuy = str(round(mxn_available * 0.50))
+        btc_to_buy = str(int(mxn_available * 0.5))
+        tusd_tobuy = str(int(mxn_available * 0.5))
         order = api.place_order(book='btc_mxn', side='buy', order_type='market', minor=btc_to_buy)
         order = api.place_order(book='tusd_mxn', side='buy', order_type='market', minor=tusd_tobuy)
 
     elif risk_level == "low":
-        tusd_tobuy = str(mxn_available)
+        tusd_tobuy = str(int(mxn_available))
         order = api.place_order(book='tusd_mxn', side='buy', order_type='market', minor=tusd_tobuy)
 
 

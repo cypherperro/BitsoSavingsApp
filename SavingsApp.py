@@ -21,8 +21,8 @@ def place_order(mxn_available, risk_level):
         order = api.place_order(book='btc_mxn', side='buy', order_type='market', minor=btc_to_buy)
 
     elif risk_level == "medium":
-        btc_to_buy = str(round(mxn_available * 0.5))
-        tusd_tobuy = str(round(mxn_available * 0.5))
+        btc_to_buy = str(round(mxn_available * 0.50))
+        tusd_tobuy = str(round(mxn_available * 0.50))
         order = api.place_order(book='btc_mxn', side='buy', order_type='market', minor=btc_to_buy)
         order = api.place_order(book='tusd_mxn', side='buy', order_type='market', minor=tusd_tobuy)
 
